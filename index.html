@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portals Airdrop Calculator</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@1,400;1,500;1,700&display=swap" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/favicon.png">
+</head>
+<body>
+  <div class="dashboard">
+    <div class="nfts-card">
+      <div class="card-title">NFTS</div>
+      
+      <div class="nft-item">
+        <img src="assets/Explorer.png" alt="Explorer" class="nft-image">
+        <div class="nft-info">
+          <div class="nft-name">Explorer</div>
+          <div class="nft-multiplier">1x</div>
+        </div>
+        <div class="nft-amount" contenteditable="true" data-maxlength="3" data-value="0">0</div>
+      </div>
+      
+      <div class="nft-item">
+        <img src="assets/Collector.png" alt="Collector" class="nft-image">
+        <div class="nft-info">
+          <div class="nft-name">Collector</div>
+          <div class="nft-multiplier">10x</div>
+        </div>
+        <div class="nft-amount" contenteditable="true" data-maxlength="3" data-value="0">0</div>
+      </div>
+      
+      <div class="nft-item">
+        <img src="assets/Strider.jpg" alt="Strider" class="nft-image">
+        <div class="nft-info">
+          <div class="nft-name">Strider</div>
+          <div class="nft-multiplier">100x</div>
+        </div>
+        <div class="nft-amount" contenteditable="true" data-maxlength="3" data-value="0">0</div>
+      </div>
+      
+      <div class="nft-item">
+        <img src="assets/Operator.png" alt="Operator" class="nft-image">
+        <div class="nft-info">
+          <div class="nft-name">Operator</div>
+          <div class="nft-multiplier">600x</div>
+        </div>
+        <div class="nft-amount" contenteditable="true" data-maxlength="3" data-value="0">0</div>
+      </div>
+
+      <div class="points-title">POINTS</div>
+      <div class="points-section">
+        
+        <div class="points-row">
+          <span class="points-label">Your Points</span>
+          <span class="points-value" contenteditable="true" data-maxlength="9">0</span>
+        </div>
+        
+        <div class="points-row">
+          <span class="points-label">Total Points</span>
+          <span class="points-value">3,864,225,291</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="center-column">
+      <div class="distribution-card">
+        <div class="distribution-title">Distribution</div>
+
+        
+        <div class="slider-container">
+          <div class="slider-labels">
+            <span>NFTs: <span id="nft-percent">60</span>%</span>
+            <span>Points: <span id="points-percent">40</span>%</span>
+          </div>
+          <input type="range" min="0" max="100" value="60" class="distribution-slider" id="distribution-slider">
+          <div class="slider-track">
+            <div class="slider-progress" style="width: 60%; background-color: #48c7d5;"></div>
+            <div class="slider-remaining" style="width: 40%; background-color: #a68ce6;"></div>
+          </div>
+        </div>
+        <p class="distribution-note">
+            Note: 12% of the total supply will be airdropped to the community: NFT holders, stakers (points), $CHRONO burners, and OG Bonus. The calculator assumes 10% will go to NFT holders and stakers.
+          </p>
+      </div>
+      
+      <button class="calculate-btn">CALCULATE</button>
+      
+      <div class="token-allocation-card">
+        <div class="token-allocation-title">$Portals Allocation</div>
+        
+        <div class="token-row-container">
+          <div class="token-rectangle">
+            <div class="token-amount">-</div>
+            <div class="token-category">Staking</div>
+          </div>
+          
+          <div class="token-rectangle">
+            <div class="token-amount">-</div>
+            <div class="token-category">NFTs TGE</div>
+          </div>
+        </div>
+        
+        <div class="token-row-container center">
+          <div class="token-rectangle">
+            <div class="token-amount" id="vested-amount">-</div>
+            <div class="token-category">NFTs over the year</div>
+          </div>
+        </div>
+        
+
+        <div class="fdv-dropdown-container">
+          <select class="fdv-dropdown">
+            <option value="100000000">FDV: $100,000,000</option>
+            <option value="250000000">FDV: $250,000,000</option>
+            <option value="500000000">FDV: $500,000,000</option>
+            <option value="1000000000">FDV: $1,000,000,000</option>
+          </select>
+        </div>
+        
+        <div class="token-results">
+          <div class="token-result-row">
+            <span class="token-result-label">Staking</span>
+            <div class="token-result-value">-</div>
+          </div>
+          
+          <div class="token-result-row">
+            <span class="token-result-label">NFTs TGE</span>
+            <div class="token-result-value">-</div>
+          </div>
+          
+          <div class="token-result-row">
+            <span class="token-result-label">NFTs over the year</span>
+            <div class="token-result-value">-</div>
+          </div>
+          
+          <div class="token-total-row">
+            <span class="token-total-label">Total</span>
+            <div class="token-total-value">$0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="learn-more-card">
+      <div class="learn-more-title">Learn More</div>
+      
+      <div class="learn-more-links">
+        <a href="https://portalsfoundation.org/" class="learn-more-link" target="_blank">Litepaper</a>
+        <a href="https://x.com/_portals_" class="learn-more-link" target="_blank">Twitter</a>
+        <a href="https://x.com/portalsFDN" class="learn-more-link" target="_blank">Foundation's Twitter</a>
+        <a href="https://discord.gg/portals" class="learn-more-link" target="_blank">Discord Server</a>
+        <a href="https://www.tensor.trade/trade/portalsuniverse" class="learn-more-link" target="_blank">Buy Portals NFT</a>
+      </div>
+      <h2>NFT vested allocation</h2>
+      <p class="learn-more-note">
+        In addition to the 12% community allocation unlocked at TGE, NFT holders will receive an extra 10% with a one-year vesting period.
+      </p>
+      <div class="developer-credit">
+        <span>Portals Airdrop Calculator Developed by </span>
+        <a href="https://x.com/erinesAMG" target="_blank" class="developer-link">
+          Erines
+          <img src="assets/Strider.jpg" alt="Erines Logo" class="developer-logo">
+        </a>
+    </div>
+    </div>
+  </div>
+    <script src="scripts/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,514 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Saira', sans-serif;
+    background-image: url('assets/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    color: #cde7ed;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.dashboard {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 40px;
+    max-width: 1400px;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Left Column - NFTS Card */
+.nfts-card {
+    background-color: rgba(11, 39, 41, 0.24);
+    border: 1px solid rgba(205, 231, 237, 0.05);
+    border-radius: 16px;
+    padding: 25px;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    order: 1;
+}
+
+.card-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-style: italic;
+    color: #CDE7ED;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.nft-item {
+    background-color: rgba(21, 55, 59, 0.15);
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+}
+
+.nft-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.nft-info {
+    flex: 1;
+}
+
+.nft-name {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.nft-multiplier {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #8ab4b8;
+}
+
+.nft-amount {
+    background-color: #15373b;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-weight: 700;
+    min-width: 50px;
+    text-align: center;
+    font-size: 1rem;
+    cursor: text;
+}
+
+.nft-amount:focus {
+    outline: none;
+    background-color: #1a323f;
+  }
+
+.points-section {
+    margin-top: 15px;
+    background-color: rgba(21, 55, 59, 0.15);
+    border-radius: 10px;
+    padding: 18px;
+}
+
+.points-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1px;
+    text-align: left;
+}
+
+.points-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.points-label {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 5px 0;
+}
+
+.points-value {
+    background-color: #15373b;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    min-width: 150px;
+    text-align: right;
+    display: inline-block;
+}
+
+/* Center Column */
+.center-column {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 400px;
+    width: 100%;
+    order: 2;
+}
+
+/* Distribution Card */
+.distribution-card {
+    background-color: rgba(11, 39, 41, 0.24);
+    border: 1px solid rgba(205, 231, 237, 0.05);
+    border-radius: 16px;
+    padding: 25px;
+    width: 100%;
+}
+
+.distribution-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-style: italic;
+    color: #CDE7ED;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.distribution-note {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 15px;
+}
+
+.slider-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .slider-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1px;
+    font-size: 1rem;
+  }
+  
+  .distribution-slider {
+    width: 100%;
+    height: 10px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    margin: 10px 0;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .distribution-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #6ee0f7;
+    cursor: pointer;
+    border: 2px solid #15373b;
+  }
+  
+  .slider-track {
+    position: relative;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    margin-top: -20px;
+  }
+  
+  .slider-progress, .slider-remaining {
+    height: 100%;
+    transition: width 0.3s ease;
+  }
+
+
+/* Calculate Button */
+.calculate-btn {
+    padding: 12px 25px;
+    background: #6ee0f7;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Saira', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    max-width: 400px;
+    margin-left: auto; /* Dodaj tę linię */
+    display: block; /* Dodaj tę linię */
+    width: auto; /* Zmień z width: 100% */
+}
+
+.calculate-btn:hover {
+    background: #5acce3;
+}
+
+/* Token Allocation Card - zaktualizowane style */
+.token-allocation-card {
+    background-color: rgba(11, 39, 41, 0.24);
+    border: 1px solid rgba(205, 231, 237, 0.05);
+    border-radius: 16px;
+    padding: 20px;
+    width: 100%;
+}
+
+.token-allocation-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-style: italic;
+    color: #CDE7ED;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.token-row-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    gap: 10px;
+}
+
+.token-row-container.center {
+    justify-content: center;
+}
+
+.token-rectangle {
+    background-color: rgba(21, 55, 59, 0.3);
+    border-radius: 8px;
+    padding: 10px 8px;
+    text-align: center;
+    flex: 1;
+    max-width: 180px;
+    border: 1px solid rgba(110, 224, 247, 0.1);
+    transition: all 0.2s ease;
+}
+
+.token-rectangle:hover {
+    background-color: rgba(21, 55, 59, 0.4);
+    border-color: rgba(110, 224, 247, 0.3);
+}
+
+.token-amount {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #6ee0f7;
+    margin-bottom: 5px;
+}
+
+.token-category {
+    font-size: 0.85rem;
+    color: #cde7ed;
+    opacity: 0.8;
+}
+
+/* FDV Dropdown */
+.fdv-dropdown-container {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.fdv-dropdown {
+    background-color: rgba(21, 55, 59, 0.5);
+    border: 1px solid rgba(110, 224, 247, 0.2);
+    border-radius: 6px;
+    padding: 8px 12px;
+    color: #cde7ed;
+    font-family: 'Saira', sans-serif;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 280px;
+}
+
+/* Token Results - bardziej zwarte */
+.token-results {
+    margin-top: 15px;
+    border-top: 1px solid rgba(205, 231, 237, 0.1);
+    padding-top: 15px;
+}
+
+.token-result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.token-result-value {
+    padding: 6px 10px;
+    min-width: 100px;
+    text-align: right;
+    background-color: rgba(21, 55, 59, 0.2);
+    border-radius: 4px;
+}
+
+.token-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(110, 224, 247, 0.2);
+    font-size: 1rem;
+}
+
+.token-total-label {
+    font-weight: 700;
+    color: #6ee0f7;
+}
+
+.token-total-value {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #00FF32;
+    padding: 0;
+    background: none;
+    border: none;
+}
+  
+@media (max-width: 768px) {
+.token-row-container {
+    flex-direction: column;
+    align-items: center;
+}
+
+.token-rectangle {
+    max-width: 100%;
+    width: 100%;
+}
+}
+
+/* Right Column - Learn More Card */
+.learn-more-card {
+    background-color: rgba(11, 39, 41, 0.24);
+    border: 1px solid rgba(205, 231, 237, 0.05);
+    border-radius: 16px;
+    padding: 25px;
+    width: 100%;
+    max-width: 400px;
+    order: 3;
+}
+
+.learn-more-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-style: italic;
+    color: #CDE7ED;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.learn-more-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.learn-more-link {
+    color: #6ee0f7;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    text-align: left;
+}
+
+.learn-more-link:hover {
+    color: #5acce3;
+    text-decoration: underline;
+}
+
+.learn-more-note {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.developer-credit {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(205, 231, 237, 0.1);
+    font-size: 0.85rem;
+    color: #8ab4b8;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  
+  .developer-link {
+    color: #6ee0f7;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .developer-link:hover {
+    color: #5acce3;
+    text-decoration: underline;
+  }
+  
+  .developer-logo {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+@media (max-width: 1200px) {
+    .dashboard {
+        flex-wrap: wrap;
+    }
+    
+    .nfts-card,
+    .center-column,
+    .learn-more-card {
+        max-width: 100%;
+        order: initial;
+    }
+    
+    .calculate-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .nfts-card,
+    .center-column,
+    .learn-more-card {
+        max-width: 100%;
+    }
+    
+    .calculate-btn {
+        align-self: center;
+    }
+    .developer-credit {
+        flex-direction: column;
+        gap: 8px;
+        padding: 15px 10px 0;
+        font-size: 0.8rem;
+      }
+      
+      .developer-link {
+        padding: 4px 8px;
+        background: rgba(110, 224, 247, 0.1);
+        border-radius: 12px;
+      }
+      
+      .developer-logo {
+        width: 14px;
+        height: 14px;
+      }
+}
